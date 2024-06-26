@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Video</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+            width: 100%;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            height: calc(100vh - 50px);
+        }
+        .left {
+            width: 50%;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .right {
+            width: 50%;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f0;
+        }
+        .video-player {
+            width: 640px;
+            height: 480px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+        }
+        .loading-container {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .loading-dots {
+            display: inline-block;
+            text-align: center;
+        }
+        .loading-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #333;
+            margin-right: 5px;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+        .loading-dot:nth-child(1) {
+            animation-delay: 0s;
+        }
+        .loading-dot:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+        .loading-dot:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.8); opacity: 0.7; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <button onclick="window.location.href='{% url 'search_subtitles' %}'">Search Subtitles</button>
+    </div>
+    <div class="container">
+        <div class="left">
+            <h1>Upload Video</h1>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" name="video" required>
+                <button type="submit">Upload</button>
+            </form>
+
+            <div class="loading-container" id="loading">
+                <div class="loading-dots">
+                    <span class="loading-dot"></span>
+                    <span class="loading-dot"></span>
+                    <span class="loading-dot"></span>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <iframe name="video-frame" class="video-player" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        // Show loading animation on form submission
+        document.querySelector('form').addEventListener('submit', function() {
+            document.getElementById('loading').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
+

@@ -83,8 +83,7 @@
                 <ul>
                     {% for result in results %}
                         <li>
-                            <a href="#" onclick="openVideo('{{ result.video_url }}')">LINK</a>
-                            : <strong>{{ result.subtitlestring }}</strong> - {{ result.timeframe }}
+				<a href="#" onclick="renderVideo('{{ result.video_url }}'); return false;">{{ result.subtitlestring }}</a> : {{ result.timeframe }}
                         </li>
                     {% endfor %}
                 </ul>
@@ -92,15 +91,21 @@
                 <p>No results found.</p>
             {% endif %}
         </div>
-        <div class="right">
-            <iframe name="video-frame" class="video-player" src="" frameborder="0" allowfullscreen></iframe>
+        <div class="right" id="video-container">
+            <!-- Video will be dynamically inserted here -->
         </div>
     </div>
 
     <script>
-        function openVideo(videoUrl) {
-            var iframe = document.querySelector('.video-player');
-            iframe.src = videoUrl;
+        function renderVideo(videoUrl) {
+	    console.log(videoUrl);
+            var videoContainer = document.getElementById('video-container');
+            videoContainer.innerHTML = `
+                <video controls class="video-player">
+                    <source src="${videoUrl}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            `;
         }
     </script>
 </body>

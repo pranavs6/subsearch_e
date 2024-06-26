@@ -31,8 +31,10 @@ def fetch_subtitles_from_dynamodb(query_string):
         subtitle_timeframe = subtitlestring_timeframe.split("   ->   ")
         subtitlestring = subtitle_timeframe[0]
         timeframe = subtitle_timeframe[1]
-        video_url = item.get('video_url', {}).get('S', '')
-        results.append({'video_url': video_url, 'timeframe': timeframe, 'subtitlestring': subtitlestring})
+        video_urla = item.get('video_url', {}).get('S', '')
+        video_url_key = video_urla.split("/")
+        video_key = "https://d3howwcxpx5mdp.cloudfront.net/" + video_url_key[3]
+        results.append({'video_url': video_key, 'timeframe': timeframe, 'subtitlestring': subtitlestring})
 
     return results
 

@@ -56,7 +56,6 @@ def upload_video(request):
         video_file = request.FILES["video"]
         temp_dir = tempfile.gettempdir()
         local_video_path = os.path.join(temp_dir, video_file.name)
-        
         # Save the file to the local path
         with open(local_video_path, 'wb+') as destination:
             for chunk in video_file.chunks():
@@ -69,5 +68,7 @@ def upload_video(request):
         return render(request, "upload_video.html", {"message": "Video uploaded successfully!"})
 
     return render(request, "upload_video.html")
+
+
 
 

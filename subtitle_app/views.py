@@ -15,7 +15,7 @@ print("Views.py is alive!")
 
 @sync_to_async
 def fetch_subtitles_from_dynamodb(query_string):
-    dynamodb_client = boto3.client('dynamodb')
+    dynamodb_client = boto3.client("dynamodb")
     table_name = "subsearch_primary"
     results = []
 
@@ -31,10 +31,14 @@ def fetch_subtitles_from_dynamodb(query_string):
         subtitle_timeframe = subtitlestring_timeframe.split("   ->   ")
         subtitlestring = subtitle_timeframe[0]
         timeframe = subtitle_timeframe[1]
+        start_time, end_time = timeframe.split(' --> ')
+            
+        h, m, s = map(float, start_time.replace(',', '.').split(':')) 
+        total_start_seconds = int(h) * 3600 + int(m) * 60 + s 
         video_urla = item.get('video_url', {}).get('S', '')
         video_url_key = video_urla.split("/")
         video_key = "https://d3howwcxpx5mdp.cloudfront.net/" + video_url_key[3]
-        results.append({'video_url': video_key, 'timeframe': timeframe, 'subtitlestring': subtitlestring})
+        results.append({'video_url': video_key, 'timeframe': timeframe, 'subtitlestring': subtitlestring, 'start':total_start_seconds - 1})
 
     return results
 

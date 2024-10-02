@@ -63,36 +63,8 @@ def uploadvideo(local_video_path):
 
 
         dynamodb_client = boto3.client("dynamodb")
-        table_name = s3_filename[:-4] + "_data"
-        table = dynamodb_client.create_table(
-        TableName=table_name,
-            KeySchema=[
-                {
-                    'AttributeName': 'subtitle_string',
-                    'KeyType': 'HASH'  
-                },
-                {
-                   'AttributeName': 'video_url',
-                    'KeyType': 'RANGE'
-                }
-            ],
-            AttributeDefinitions=[
-                {
-                    'AttributeName': 'subtitle_string',
-                    'AttributeType': 'S'
-                },
-                {
-                    'AttributeName': 'video_url',
-                    'AttributeType': 'S'
-                },
-
-            ],
-            ProvisionedThroughput={
-                'ReadCapacityUnits': 5,
-                'WriteCapacityUnits': 5
-            }
-        )
-        dynamodb_client.get_waiter('table_exists').wait(TableName=table_name)
+        table_name = "subsearch_primary" 
+    
 
         for subtitle in subtitles:
             index, timeframe, subtitle_text = subtitle

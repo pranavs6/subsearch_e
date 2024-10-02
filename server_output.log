@@ -1,0 +1,12 @@
+nohup: ignoring input
+INFO 2024-10-02 15:43:08,361 autoreload Watching for file changes with StatReloader
+INFO 2024-10-02 15:43:08,361 autoreload Watching for file changes with StatReloader
+INFO 2024-10-02 15:43:30,819 credentials Found credentials in shared credentials file: ~/.aws/credentials
+INFO 2024-10-02 15:43:32,112 basehttp "GET /search/?query=Kuzco HTTP/1.1" 200 18055
+INFO 2024-10-02 15:43:32,112 basehttp "GET /search/?query=Kuzco HTTP/1.1" 200 18055
+INFO 2024-10-02 15:46:20,248 basehttp "GET /search/?query=Kuzco HTTP/1.1" 200 18055
+INFO 2024-10-02 15:46:20,248 basehttp "GET /search/?query=Kuzco HTTP/1.1" 200 18055
+INFO 2024-10-02 15:46:21,782 basehttp "GET /search/?query=Kuzco HTTP/1.1" 200 18055
+INFO 2024-10-02 15:46:21,782 basehttp "GET /search/?query=Kuzco HTTP/1.1" 200 18055
+INFO 2024-10-02 15:46:22,865 basehttp "GET /search/?query=Kuzco HTTP/1.1" 200 18055
+INFO 2024-10-02 15:46:22,865 basehttp "GET /search/?query=Kuzco HTTP/1.1" 200 18055

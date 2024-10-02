@@ -1,0 +1,38 @@
+nohup: ignoring input
+Tasks.py is alive!
+Views.py is alive!
+ 
+ -------------- celery@ThinkEagle v5.4.0 (opalescent)
+--- ***** ----- 
+-- ******* ---- Linux-5.15.153.1-microsoft-standard-WSL2-x86_64-with-glibc2.36 2024-10-02 15:43:08
+- *** --- * --- 
+- ** ---------- [config]
+- ** ---------- .> app:         subtitle_project:0x7fa8fadabfd0
+- ** ---------- .> transport:   redis://127.0.0.1:6379/0
+- ** ---------- .> results:     redis://127.0.0.1:6379/0
+- *** --- * --- .> concurrency: 4 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . uploadvideo
+
+[2024-10-02 15:43:08,689: WARNING/MainProcess] /home/pranavsathyaar/main/works/subsearch_e/venv/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-02 15:43:08,717: INFO/MainProcess] Connected to redis://127.0.0.1:6379/0
+[2024-10-02 15:43:08,720: WARNING/MainProcess] /home/pranavsathyaar/main/works/subsearch_e/venv/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2024-10-02 15:43:08,727: INFO/MainProcess] mingle: searching for neighbors
+[2024-10-02 15:43:09,763: INFO/MainProcess] mingle: all alone
+[2024-10-02 15:43:09,791: INFO/MainProcess] celery@ThinkEagle ready.

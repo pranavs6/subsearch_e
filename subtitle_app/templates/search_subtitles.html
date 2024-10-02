@@ -83,7 +83,7 @@
                 <ul>
                     {% for result in results %}
                         <li>
-				<a href="#" onclick="renderVideo('{{ result.video_url }}'); return false;">{{ result.subtitlestring }}</a> : {{ result.timeframe }}
+                            <a href="#" onclick="renderVideo('{{ result.video_url }}', {{ result.start }}); return false;">{{ result.subtitlestring }}</a> : {{ result.timeframe }}
                         </li>
                     {% endfor %}
                 </ul>
@@ -97,15 +97,20 @@
     </div>
 
     <script>
-        function renderVideo(videoUrl) {
-	    console.log(videoUrl);
+        function renderVideo(videoUrl, startSeconds) {
+            console.log(videoUrl);
             var videoContainer = document.getElementById('video-container');
             videoContainer.innerHTML = `
-                <video controls class="video-player">
+                <video controls class="video-player" id="video-player">
                     <source src="${videoUrl}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             `;
+            
+            // Get the video element and set the current time to startSeconds
+            var videoPlayer = document.getElementById('video-player');
+            videoPlayer.currentTime = startSeconds;  // Set the start time
+            videoPlayer.play();  // Optionally start playing immediately
         }
     </script>
 </body>

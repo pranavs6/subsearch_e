@@ -5,7 +5,7 @@
   <li>Developed with AWS - DynamoDB, S3, CloudFront, EC2; Django; CCExtractor; Celery; Redis</li>
   <li>Effectively handles concurrent task executions with Celery and Redis as a broker</li>
 </ul>
-<img src="https://github.com/pranavs6/subsearch_e/assets/119113218/4e11bb3a-a0d0-4f2b-904e-0efd8a051e67">
+<img width="3120" alt="arch_subs" src="https://github.com/user-attachments/assets/ad037008-1a59-4a03-9d5f-75a81a81f95e">
 <h3>To clone and setup stuff</h3>
 <ol>
   <li>Clone the project: 'git clone https://github.com/pranavs6/subsearch_e.git'</li>
